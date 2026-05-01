@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bjbkhnsscqrik"]
+
+[ext_resource type="Script" uid="uid://dxg6irv6mtk3t" path="res://scripts/RockBoss.gd" id="1_script"]
+[ext_resource type="SpriteFrames" uid="uid://r2v56n6yft8e" path="res://scenes/RockBossFrames.tres" id="2_frames"]
+[ext_resource type="Script" uid="uid://46e83b0ea852" path="res://scripts/HealthBar.gd" id="3_hbar"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 55.0
+height = 130.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+radius = 600.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hit"]
+radius = 110.0
+
+[node name="RockBoss" type="CharacterBody2D" unique_id=674391847]
+collision_layer = 2
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509522271]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1765294271]
+modulate = Color(0.38, 0.34, 0.42, 1)
+position = Vector2(0, -4)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("2_frames")
+animation = &"stomp_left"
+frame = 12
+frame_progress = 1.0
+
+[node name="HealthBar" type="Node2D" parent="." unique_id=1277553456]
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_hbar")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=516244520]
+monitorable = false
+
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea" unique_id=305316056]
+shape = SubResource("CircleShape2D_detect")
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1853245151]
+monitoring = false
+monitorable = false
+
+[node name="HitShape" type="CollisionShape2D" parent="HitArea" unique_id=410949919]
+shape = SubResource("CircleShape2D_hit")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

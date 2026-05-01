@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://tutorial_ui_v1"]
+
+[ext_resource type="Script" path="res://scripts/TutorialUI.gd" id="1_tut"]
+
+[node name="TutorialUI" type="CanvasLayer"]
+layer = 8
+script = ExtResource("1_tut")

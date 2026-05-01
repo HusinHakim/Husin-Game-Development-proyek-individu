@@ -1,0 +1,1755 @@
+[gd_scene format=3 uid="uid://crw42x8fj3td4"]
+
+[ext_resource type="Texture2D" uid="uid://dak25egnxvw7c" path="res://assets/sprites/environment/room4_background.png" id="1_bg"]
+[ext_resource type="PackedScene" uid="uid://dt83befuukoll" path="res://scenes/Slime.tscn" id="2_slime"]
+[ext_resource type="PackedScene" path="res://scenes/DebugSkipUI.tscn" id="5_dbgsk"]
+[ext_resource type="Script" uid="uid://q4tir63fbhqt" path="res://scripts/SheetAnim.gd" id="7_anim"]
+[ext_resource type="Texture2D" uid="uid://8ku4e8wkqycg" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Eye 1 Sheet.png" id="8_eye1"]
+[ext_resource type="Texture2D" uid="uid://bwqxb23s42k6x" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Eye 2 Sheet.png" id="9_eye2"]
+[ext_resource type="Texture2D" uid="uid://blifx5vppn3dc" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Little Eyes 1 Sheet.png" id="12_le1"]
+[ext_resource type="Texture2D" uid="uid://5nuib8jhryrc" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Little Eyes 2 Sheet.png" id="13_le2"]
+[ext_resource type="Texture2D" uid="uid://cwh7mxvmwvkwe" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Amalgam 1 Sheet.png" id="16_amg1"]
+[ext_resource type="Texture2D" uid="uid://bafjp0vkysm6m" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Amalgam 2 Sheet.png" id="17_amg2"]
+[ext_resource type="Texture2D" uid="uid://4ma3c4laomq2" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Mouth 1 Sheet.png" id="18_mth1"]
+[ext_resource type="Texture2D" uid="uid://n1efudplwma5" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Creatures/Mouth 2 Sheet.png" id="19_mth2"]
+[ext_resource type="Texture2D" uid="uid://dktkfk4emj8pb" path="res://assets/sprites/environment/crawling_depths/eldritch_entity_anim.png" id="26_entity"]
+[ext_resource type="Texture2D" uid="uid://cqp0wr06foqeg" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Tall Vein Column 1.png" id="30_tcol1"]
+[ext_resource type="Texture2D" uid="uid://b2y2l2xccwkru" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Tall Vein Column 2.png" id="31_tcol2"]
+[ext_resource type="Texture2D" uid="uid://cbyjlb4suc2m6" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Short Vein Column 1.png" id="32_scol1"]
+[ext_resource type="Texture2D" uid="uid://c7i4s7xydxe4n" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Short Vein Column 2.png" id="33_scol2"]
+[ext_resource type="Texture2D" uid="uid://b2a2d87kv0bi7" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue A1.png" id="34_sa1"]
+[ext_resource type="Texture2D" uid="uid://d1cjkhmqaorai" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue A2.png" id="35_sa2"]
+[ext_resource type="Texture2D" uid="uid://btodimpu3yau" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue B1.png" id="36_sb1"]
+[ext_resource type="Texture2D" uid="uid://br6cx8536w0vg" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue B2.png" id="37_sb2"]
+[ext_resource type="Texture2D" uid="uid://b2ygbw470ybko" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue C1.png" id="38_sc1"]
+[ext_resource type="Texture2D" uid="uid://jkqvn0uhoakp" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Statue C2.png" id="39_sc2"]
+[ext_resource type="Texture2D" uid="uid://cno406c2qfbhe" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Amalgam Arc 1.png" id="40_arc1"]
+[ext_resource type="Texture2D" uid="uid://ch75ba57s764v" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Amalgam Arc 2.png" id="41_arc2"]
+[ext_resource type="Texture2D" uid="uid://biv6bemkirdcy" path="res://assets/sprites/environment/NVIDIA_Overlay_2026-05-01_20.06.02.png" id="41_ut1qk"]
+[ext_resource type="Texture2D" uid="uid://8vfuyg5u816g" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Urn 1.png" id="43_urn1"]
+[ext_resource type="Texture2D" uid="uid://b20edlnqjy31s" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Structures & Details/Urn 2.png" id="44_urn2"]
+[ext_resource type="Texture2D" uid="uid://neosx5b61070" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Terrain/Floating Rock A1 Sheet.png" id="46_rkA1"]
+[ext_resource type="Texture2D" uid="uid://bj1b765con7d2" path="res://assets/sprites/environment/crawling_depths/CRAWLING DEPTHS/Terrain/Floating Rock B1 Sheet.png" id="47_rkB1"]
+[ext_resource type="Texture2D" uid="uid://hxkenjp6urqp" path="res://assets/sprites/environment/crawling_depths/floor_tile.png" id="48_floor"]
+[ext_resource type="Texture2D" uid="uid://cox2doq4lclao" path="res://assets/sprites/environment/crawling_depths/floor_tile_b.png" id="49_floorb"]
+[ext_resource type="Texture2D" uid="uid://d2x31pc01l151" path="res://assets/sprites/environment/crawling_depths/floor_tile_c.png" id="50_floorc"]
+[ext_resource type="PackedScene" uid="uid://b5dhdwgrhnikf" path="res://scenes/CorruptedGolem.tscn" id="51_golem"]
+[ext_resource type="PackedScene" path="res://scenes/BossHealthUI.tscn" id="52_bossui"]
+[ext_resource type="PackedScene" path="res://scenes/RitualBook.tscn" id="53_ritbk"]
+[ext_resource type="PackedScene" path="res://scenes/RitualManager.tscn" id="54_ritmgr"]
+[ext_resource type="PackedScene" path="res://scenes/BossItemSpawner.tscn" id="55_spwn"]
+[ext_resource type="PackedScene" path="res://scenes/DebugSkipRitualUI.tscn" id="56_dbgrit"]
+[ext_resource type="PackedScene" path="res://scenes/DebugHalfBossHpUI.tscn" id="57_dbghp"]
+[ext_resource type="PackedScene" path="res://scenes/WinUI.tscn" id="58_winui"]
+
+[node name="Room4" type="Node2D" unique_id=153135711]
+position = Vector2(640, 360)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1386023821]
+position = Vector2(18, 54)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bg")
+
+[node name="Floors" type="Node2D" parent="." unique_id=1546913041]
+
+[node name="FloorTile_example_a" type="Sprite2D" parent="Floors" unique_id=1122482193]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("48_floor")
+
+[node name="FloorTile_example_b" type="Sprite2D" parent="Floors" unique_id=109292655]
+position = Vector2(-25, 23)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b8" type="Sprite2D" parent="Floors" unique_id=975039252]
+position = Vector2(24, 47)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b9" type="Sprite2D" parent="Floors" unique_id=1116037913]
+position = Vector2(24, 72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b3" type="Sprite2D" parent="Floors" unique_id=458577312]
+position = Vector2(-47, 22)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b4" type="Sprite2D" parent="Floors" unique_id=1166818602]
+position = Vector2(201, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b5" type="Sprite2D" parent="Floors" unique_id=603126809]
+position = Vector2(-454, 167)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b10" type="Sprite2D" parent="Floors" unique_id=1603743935]
+position = Vector2(-454, 191)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b6" type="Sprite2D" parent="Floors" unique_id=2044158465]
+position = Vector2(-430, 191)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b11" type="Sprite2D" parent="Floors" unique_id=1756389484]
+position = Vector2(-431.5, 144.5)
+scale = Vector2(1.3125, 1.3125)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b12" type="Sprite2D" parent="Floors" unique_id=1522706517]
+position = Vector2(-478, 192)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b2" type="Sprite2D" parent="Floors" unique_id=415900477]
+position = Vector2(47, 24)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b7" type="Sprite2D" parent="Floors" unique_id=1224150590]
+position = Vector2(0, 48)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b13" type="Sprite2D" parent="Floors" unique_id=1951555577]
+position = Vector2(-595, 115)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_b14" type="Sprite2D" parent="Floors" unique_id=876692193]
+position = Vector2(-595, 92)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("49_floorb")
+
+[node name="FloorTile_example_c" type="Sprite2D" parent="Floors" unique_id=138865277]
+position = Vector2(48, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c5" type="Sprite2D" parent="Floors" unique_id=1055182414]
+position = Vector2(73, 22)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c6" type="Sprite2D" parent="Floors" unique_id=1252218448]
+position = Vector2(52, 47)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c2" type="Sprite2D" parent="Floors" unique_id=1868395802]
+position = Vector2(0, 24)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c3" type="Sprite2D" parent="Floors" unique_id=398210260]
+position = Vector2(25, 25)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c4" type="Sprite2D" parent="Floors" unique_id=1421693367]
+position = Vector2(-23, -1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c7" type="Sprite2D" parent="Floors" unique_id=348337428]
+position = Vector2(-571, 116)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c8" type="Sprite2D" parent="Floors" unique_id=571802197]
+position = Vector2(-573, 141)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c9" type="Sprite2D" parent="Floors" unique_id=899364020]
+position = Vector2(-551, 143)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c10" type="Sprite2D" parent="Floors" unique_id=1950108278]
+position = Vector2(-571, 92)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c11" type="Sprite2D" parent="Floors" unique_id=1769420109]
+position = Vector2(-595, 68)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c12" type="Sprite2D" parent="Floors" unique_id=35268694]
+position = Vector2(-619, 68)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c13" type="Sprite2D" parent="Floors" unique_id=1427477818]
+position = Vector2(-619, 43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c14" type="Sprite2D" parent="Floors" unique_id=56109290]
+position = Vector2(-643, 43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c15" type="Sprite2D" parent="Floors" unique_id=130431076]
+position = Vector2(-642, 67)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c16" type="Sprite2D" parent="Floors" unique_id=1874146294]
+position = Vector2(-618, 91)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="FloorTile_example_c17" type="Sprite2D" parent="Floors" unique_id=1519085472]
+position = Vector2(-618, 91)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("50_floorc")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=469206313]
+
+[node name="EldritchEntity" type="Sprite2D" parent="." unique_id=1664558706]
+z_index = 2
+position = Vector2(17, -277)
+scale = Vector2(2, 2)
+texture = ExtResource("26_entity")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 208)
+script = ExtResource("7_anim")
+sheet = ExtResource("26_entity")
+frame_w = 160
+frame_h = 208
+frame_count = 2
+fps = 0.5
+randomize_start = false
+
+[node name="Decor" type="Node2D" parent="." unique_id=1367844244]
+
+[node name="TallColLeft" type="Sprite2D" parent="Decor" unique_id=849441155]
+position = Vector2(150, -163)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("30_tcol1")
+
+[node name="TallColRight" type="Sprite2D" parent="Decor" unique_id=2011141508]
+z_index = 2
+position = Vector2(130, -243)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("31_tcol2")
+
+[node name="TallColBottom" type="Sprite2D" parent="Decor" unique_id=717844758]
+position = Vector2(97, -61)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("30_tcol1")
+
+[node name="ShortColLeft" type="Sprite2D" parent="Decor" unique_id=406761021]
+position = Vector2(214, 89)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("32_scol1")
+
+[node name="ShortColRight" type="Sprite2D" parent="Decor" unique_id=2100157072]
+z_index = 8
+position = Vector2(144, 40)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("33_scol2")
+
+[node name="StatueA1" type="Sprite2D" parent="Decor" unique_id=1156294256]
+position = Vector2(-263, 103)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("34_sa1")
+
+[node name="StatueA2_satellite" type="Sprite2D" parent="Decor" unique_id=671866566]
+position = Vector2(50, -59)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("35_sa2")
+
+[node name="StatueB1" type="Sprite2D" parent="Decor" unique_id=256428507]
+position = Vector2(193, -207)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("36_sb1")
+
+[node name="StatueB2" type="Sprite2D" parent="Decor" unique_id=1339228661]
+position = Vector2(655, 178)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("37_sb2")
+
+[node name="StatueC1" type="Sprite2D" parent="Decor" unique_id=1013208259]
+position = Vector2(89, 301)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("38_sc1")
+
+[node name="StatueC2_satellite" type="Sprite2D" parent="Decor" unique_id=2141437742]
+z_index = 19
+position = Vector2(121, -110)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("39_sc2")
+
+[node name="ArcLeft" type="Sprite2D" parent="Decor" unique_id=1444199436]
+position = Vector2(-206, 253)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("40_arc1")
+
+[node name="ArcUnderEntity" type="Sprite2D" parent="Decor" unique_id=619956426]
+position = Vector2(291, 238)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("40_arc1")
+
+[node name="ArcRight" type="Sprite2D" parent="Decor" unique_id=344078994]
+position = Vector2(300, 105)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("41_arc2")
+
+[node name="ArcBottom" type="Sprite2D" parent="Decor" unique_id=1032905347]
+position = Vector2(115, 376)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("41_arc2")
+
+[node name="Urn1_a" type="Sprite2D" parent="Decor" unique_id=660020072]
+position = Vector2(-95, 72)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("43_urn1")
+
+[node name="Urn1_b" type="Sprite2D" parent="Decor" unique_id=1764981137]
+position = Vector2(-6, -114)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("43_urn1")
+
+[node name="Urn1_c" type="Sprite2D" parent="Decor" unique_id=1260082038]
+position = Vector2(228, 291)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("43_urn1")
+
+[node name="Urn1_d" type="Sprite2D" parent="Decor" unique_id=2048701423]
+position = Vector2(168, 428)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("43_urn1")
+
+[node name="Urn1_e" type="Sprite2D" parent="Decor" unique_id=1730853775]
+position = Vector2(-709.00006, 383)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("43_urn1")
+
+[node name="Urn2_a" type="Sprite2D" parent="Decor" unique_id=38851515]
+position = Vector2(256, 291)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("44_urn2")
+
+[node name="Urn2_b" type="Sprite2D" parent="Decor" unique_id=2094380624]
+position = Vector2(-587, 280)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("44_urn2")
+
+[node name="Urn2_b2" type="Sprite2D" parent="Decor" unique_id=747258404]
+position = Vector2(-662, 253)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("44_urn2")
+
+[node name="Urn2_c" type="Sprite2D" parent="Decor" unique_id=465838264]
+position = Vector2(-303, 213)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("44_urn2")
+
+[node name="Urn2_d" type="Sprite2D" parent="Decor" unique_id=122008958]
+position = Vector2(-6, -234)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("44_urn2")
+
+[node name="Bridges" type="Node2D" parent="." unique_id=1590429697]
+
+[node name="RockToTopLeftHi_a" type="Sprite2D" parent="Bridges" unique_id=78910601]
+position = Vector2(-528, -180)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("47_rkB1")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="RockToTopLeftHi_b" type="Sprite2D" parent="Bridges" unique_id=1327527067]
+position = Vector2(-570, -222)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="RockToTopRightSat_b" type="Sprite2D" parent="Bridges" unique_id=1185360033]
+position = Vector2(571, -81)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("47_rkB1")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="RockToTopRightSat_c" type="Sprite2D" parent="Bridges" unique_id=989324534]
+position = Vector2(618, -114)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="RockToTopRightHi_b" type="Sprite2D" parent="Bridges" unique_id=344927461]
+position = Vector2(498, -222)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="RockExtraDecor_a" type="Sprite2D" parent="Bridges" unique_id=2031168315]
+position = Vector2(-82.00002, 27.999992)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_b" type="Sprite2D" parent="Bridges" unique_id=1015369240]
+position = Vector2(-396, -240)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("47_rkB1")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="RockExtraDecor_c" type="Sprite2D" parent="Bridges" unique_id=824581491]
+position = Vector2(372, -240)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=287554917]
+
+[node name="RockExtraDecor_a2" type="Sprite2D" parent="Walls" unique_id=114398969]
+position = Vector2(-82, 28)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a3" type="Sprite2D" parent="Walls" unique_id=88089506]
+position = Vector2(-126, 28)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a64" type="Sprite2D" parent="Walls" unique_id=1399109682]
+position = Vector2(109, 25)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a120" type="Sprite2D" parent="Walls" unique_id=1630790462]
+position = Vector2(82, 1.0000019)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a121" type="Sprite2D" parent="Walls" unique_id=159137564]
+position = Vector2(179, -16.999996)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a122" type="Sprite2D" parent="Walls" unique_id=770269954]
+position = Vector2(206, -42.999992)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a125" type="Sprite2D" parent="Walls" unique_id=877519693]
+position = Vector2(179, -67.99999)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a126" type="Sprite2D" parent="Walls" unique_id=52806667]
+position = Vector2(179, -91.99999)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a127" type="Sprite2D" parent="Walls" unique_id=689501457]
+position = Vector2(206, -118.99999)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a128" type="Sprite2D" parent="Walls" unique_id=329424196]
+position = Vector2(229, -142)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a129" type="Sprite2D" parent="Walls" unique_id=2129091781]
+position = Vector2(252, -167.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a130" type="Sprite2D" parent="Walls" unique_id=698912680]
+position = Vector2(228, -189.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a131" type="Sprite2D" parent="Walls" unique_id=339202369]
+position = Vector2(206, -215.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a132" type="Sprite2D" parent="Walls" unique_id=923404319]
+position = Vector2(180, -238.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a133" type="Sprite2D" parent="Walls" unique_id=456114607]
+position = Vector2(135, -262)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a134" type="Sprite2D" parent="Walls" unique_id=623011497]
+position = Vector2(88, -261.00003)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a135" type="Sprite2D" parent="Walls" unique_id=968950476]
+position = Vector2(44, -260)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a136" type="Sprite2D" parent="Walls" unique_id=1245657062]
+position = Vector2(1, -259.00003)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a137" type="Sprite2D" parent="Walls" unique_id=1515250128]
+position = Vector2(-41, -258)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a138" type="Sprite2D" parent="Walls" unique_id=967459481]
+position = Vector2(-85, -259.00003)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a139" type="Sprite2D" parent="Walls" unique_id=1817198096]
+position = Vector2(-131, -235)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a140" type="Sprite2D" parent="Walls" unique_id=1125306985]
+position = Vector2(-154, -212.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a141" type="Sprite2D" parent="Walls" unique_id=129377848]
+position = Vector2(-179, -187.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a142" type="Sprite2D" parent="Walls" unique_id=227254857]
+position = Vector2(-203, -161.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a143" type="Sprite2D" parent="Walls" unique_id=1492917722]
+position = Vector2(-182, -138.00002)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a144" type="Sprite2D" parent="Walls" unique_id=1330400690]
+position = Vector2(-156, -114.000015)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a145" type="Sprite2D" parent="Walls" unique_id=15358096]
+position = Vector2(-127, -90.000015)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a146" type="Sprite2D" parent="Walls" unique_id=2094809647]
+position = Vector2(-130, -68.000015)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a147" type="Sprite2D" parent="Walls" unique_id=1578433915]
+position = Vector2(-154, -41.000015)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a148" type="Sprite2D" parent="Walls" unique_id=1761683925]
+position = Vector2(-131.09998, -18.349997)
+scale = Vector2(1.3687493, 1.4156243)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a149" type="Sprite2D" parent="Walls" unique_id=1096052728]
+position = Vector2(-59.000008, 5.0000095)
+scale = Vector2(1.3687493, 1.4156243)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a150" type="Sprite2D" parent="Walls" unique_id=100109798]
+position = Vector2(-108, 5.0000095)
+scale = Vector2(1.3687493, 1.4156243)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a151" type="Sprite2D" parent="Walls" unique_id=1843694840]
+position = Vector2(-108, 5.0000095)
+scale = Vector2(1.3687493, 1.4156243)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a123" type="Sprite2D" parent="Walls" unique_id=1856492152]
+position = Vector2(131, 2.0000038)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a124" type="Sprite2D" parent="Walls" unique_id=523523900]
+position = Vector2(131, 2.0000038)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a65" type="Sprite2D" parent="Walls" unique_id=1982667965]
+position = Vector2(153, 26)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a66" type="Sprite2D" parent="Walls" unique_id=1424967413]
+position = Vector2(197, 26)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a67" type="Sprite2D" parent="Walls" unique_id=695669604]
+position = Vector2(243, 25)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a68" type="Sprite2D" parent="Walls" unique_id=2052945409]
+position = Vector2(328, 51)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a70" type="Sprite2D" parent="Walls" unique_id=223808935]
+position = Vector2(375, 49)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a71" type="Sprite2D" parent="Walls" unique_id=225914975]
+position = Vector2(419, 74)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a73" type="Sprite2D" parent="Walls" unique_id=141188361]
+position = Vector2(469, 99)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a74" type="Sprite2D" parent="Walls" unique_id=1454791928]
+position = Vector2(471, 122)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a75" type="Sprite2D" parent="Walls" unique_id=122693883]
+position = Vector2(493, 148)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a76" type="Sprite2D" parent="Walls" unique_id=1321128744]
+position = Vector2(493, 148)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a77" type="Sprite2D" parent="Walls" unique_id=1884187173]
+position = Vector2(540, 147)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a78" type="Sprite2D" parent="Walls" unique_id=2077377273]
+position = Vector2(586, 145)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a79" type="Sprite2D" parent="Walls" unique_id=1381411579]
+position = Vector2(634, 143)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a80" type="Sprite2D" parent="Walls" unique_id=1457743319]
+position = Vector2(683, 146)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a81" type="Sprite2D" parent="Walls" unique_id=939125514]
+position = Vector2(711, 170)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a82" type="Sprite2D" parent="Walls" unique_id=999324136]
+position = Vector2(731, 197)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a83" type="Sprite2D" parent="Walls" unique_id=917360752]
+position = Vector2(710, 222)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a84" type="Sprite2D" parent="Walls" unique_id=1476800275]
+position = Vector2(757, 244)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a85" type="Sprite2D" parent="Walls" unique_id=481288476]
+position = Vector2(782, 271)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a86" type="Sprite2D" parent="Walls" unique_id=780036911]
+position = Vector2(758, 293)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a87" type="Sprite2D" parent="Walls" unique_id=514824464]
+position = Vector2(738, 319)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a88" type="Sprite2D" parent="Walls" unique_id=1348835667]
+position = Vector2(712, 317)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a89" type="Sprite2D" parent="Walls" unique_id=1480828892]
+position = Vector2(673, 346)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a90" type="Sprite2D" parent="Walls" unique_id=703804988]
+position = Vector2(638, 319)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a91" type="Sprite2D" parent="Walls" unique_id=342509861]
+position = Vector2(589, 296)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a92" type="Sprite2D" parent="Walls" unique_id=499455182]
+position = Vector2(563, 271)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a93" type="Sprite2D" parent="Walls" unique_id=441127809]
+position = Vector2(539, 246)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a94" type="Sprite2D" parent="Walls" unique_id=1249486925]
+position = Vector2(495, 244)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a95" type="Sprite2D" parent="Walls" unique_id=1572076592]
+position = Vector2(443, 225)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a96" type="Sprite2D" parent="Walls" unique_id=630984942]
+position = Vector2(419, 248)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a97" type="Sprite2D" parent="Walls" unique_id=1830866098]
+position = Vector2(398, 270)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a98" type="Sprite2D" parent="Walls" unique_id=126477141]
+position = Vector2(375, 295)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a99" type="Sprite2D" parent="Walls" unique_id=1484450202]
+position = Vector2(350, 318)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a100" type="Sprite2D" parent="Walls" unique_id=92751023]
+position = Vector2(301, 318)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a101" type="Sprite2D" parent="Walls" unique_id=2088342770]
+position = Vector2(251, 341)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a102" type="Sprite2D" parent="Walls" unique_id=141597540]
+position = Vector2(149, 339)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a103" type="Sprite2D" parent="Walls" unique_id=1956684447]
+position = Vector2(203, 339)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a72" type="Sprite2D" parent="Walls" unique_id=1372110194]
+position = Vector2(397, 48)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a69" type="Sprite2D" parent="Walls" unique_id=652566885]
+position = Vector2(290, 24)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a4" type="Sprite2D" parent="Walls" unique_id=1088564463]
+position = Vector2(-170, 27)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a5" type="Sprite2D" parent="Walls" unique_id=1997915363]
+position = Vector2(-213, 28)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a6" type="Sprite2D" parent="Walls" unique_id=1003804820]
+position = Vector2(-362, 53)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a10" type="Sprite2D" parent="Walls" unique_id=225098981]
+position = Vector2(-375, 77)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a11" type="Sprite2D" parent="Walls" unique_id=1374957800]
+position = Vector2(-420, 126)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a13" type="Sprite2D" parent="Walls" unique_id=677979880]
+position = Vector2(-421, 101)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a12" type="Sprite2D" parent="Walls" unique_id=84882539]
+position = Vector2(-466, 149)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a14" type="Sprite2D" parent="Walls" unique_id=1255828254]
+position = Vector2(-494.99994, 148)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a15" type="Sprite2D" parent="Walls" unique_id=864598120]
+position = Vector2(-516.99994, 123)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a16" type="Sprite2D" parent="Walls" unique_id=1926231733]
+position = Vector2(-539, 123)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a17" type="Sprite2D" parent="Walls" unique_id=682842581]
+position = Vector2(-653.99994, 96)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a105" type="Sprite2D" parent="Walls" unique_id=13341532]
+position = Vector2(-678, 72)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a106" type="Sprite2D" parent="Walls" unique_id=277647564]
+position = Vector2(-677.99994, 51)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a107" type="Sprite2D" parent="Walls" unique_id=1810851720]
+position = Vector2(-722, 50)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a117" type="Sprite2D" parent="Walls" unique_id=2026325664]
+position = Vector2(-757, 25.999996)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a118" type="Sprite2D" parent="Walls" unique_id=1129983374]
+position = Vector2(-754, -7.6293945e-06)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a119" type="Sprite2D" parent="Walls" unique_id=2146073917]
+position = Vector2(-752.99994, -18.00001)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a108" type="Sprite2D" parent="Walls" unique_id=451428741]
+position = Vector2(-612, 21.999996)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a113" type="Sprite2D" parent="Walls" unique_id=1357033534]
+position = Vector2(-612.99994, 0.9999943)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a114" type="Sprite2D" parent="Walls" unique_id=1891487873]
+position = Vector2(-611, -24.00001)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a115" type="Sprite2D" parent="Walls" unique_id=730285711]
+position = Vector2(-655.99994, -45.00001)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a116" type="Sprite2D" parent="Walls" unique_id=1549616438]
+position = Vector2(-703, -45.00001)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a109" type="Sprite2D" parent="Walls" unique_id=1227631761]
+position = Vector2(-578.99994, 44)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a110" type="Sprite2D" parent="Walls" unique_id=1840665034]
+position = Vector2(-558, 69)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a111" type="Sprite2D" parent="Walls" unique_id=931144392]
+position = Vector2(-534, 97)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a112" type="Sprite2D" parent="Walls" unique_id=1584848471]
+position = Vector2(-534, 97)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a104" type="Sprite2D" parent="Walls" unique_id=2084409367]
+position = Vector2(-628.99994, 121)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a18" type="Sprite2D" parent="Walls" unique_id=99784439]
+position = Vector2(-606, 148)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a19" type="Sprite2D" parent="Walls" unique_id=739153661]
+position = Vector2(-606, 148)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a20" type="Sprite2D" parent="Walls" unique_id=984764737]
+position = Vector2(-605, 148)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a21" type="Sprite2D" parent="Walls" unique_id=968116991]
+position = Vector2(-660, 169)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a22" type="Sprite2D" parent="Walls" unique_id=584692024]
+position = Vector2(-685, 198)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a23" type="Sprite2D" parent="Walls" unique_id=930588248]
+position = Vector2(-659, 223)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a24" type="Sprite2D" parent="Walls" unique_id=1976554368]
+position = Vector2(-706, 243)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a25" type="Sprite2D" parent="Walls" unique_id=1298694611]
+position = Vector2(-707, 295)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a26" type="Sprite2D" parent="Walls" unique_id=1179243478]
+position = Vector2(-707.99994, 268)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a27" type="Sprite2D" parent="Walls" unique_id=1290817755]
+position = Vector2(-681.9999, 317)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a28" type="Sprite2D" parent="Walls" unique_id=901333142]
+position = Vector2(-658.00006, 316)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a29" type="Sprite2D" parent="Walls" unique_id=380228603]
+position = Vector2(-634.99994, 343)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a30" type="Sprite2D" parent="Walls" unique_id=1211462381]
+position = Vector2(-608.99994, 344)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a31" type="Sprite2D" parent="Walls" unique_id=161725858]
+position = Vector2(-589.00006, 317)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a32" type="Sprite2D" parent="Walls" unique_id=413109923]
+position = Vector2(-542, 297)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a33" type="Sprite2D" parent="Walls" unique_id=154036964]
+position = Vector2(-516, 267)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a34" type="Sprite2D" parent="Walls" unique_id=228317943]
+position = Vector2(-448, 237)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a35" type="Sprite2D" parent="Walls" unique_id=1859310774]
+position = Vector2(-444, 222)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a36" type="Sprite2D" parent="Walls" unique_id=2006994123]
+position = Vector2(-422.99994, 220)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a37" type="Sprite2D" parent="Walls" unique_id=409360594]
+position = Vector2(-398.99994, 219)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a38" type="Sprite2D" parent="Walls" unique_id=1557937059]
+position = Vector2(-371.99994, 246)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a39" type="Sprite2D" parent="Walls" unique_id=1143976464]
+position = Vector2(-346.99997, 272)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a40" type="Sprite2D" parent="Walls" unique_id=2086859853]
+position = Vector2(-324.99997, 294)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a41" type="Sprite2D" parent="Walls" unique_id=115830009]
+position = Vector2(-296.99997, 321)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a42" type="Sprite2D" parent="Walls" unique_id=2007873346]
+position = Vector2(-296.99997, 321)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a43" type="Sprite2D" parent="Walls" unique_id=1494913139]
+position = Vector2(-251.99997, 320)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a44" type="Sprite2D" parent="Walls" unique_id=2016163377]
+position = Vector2(-207.99997, 344)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a45" type="Sprite2D" parent="Walls" unique_id=1100376358]
+position = Vector2(-161.99997, 344)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a46" type="Sprite2D" parent="Walls" unique_id=2108931862]
+position = Vector2(-156.99997, 363)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a47" type="Sprite2D" parent="Walls" unique_id=1497930711]
+position = Vector2(-199.99997, 388)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a48" type="Sprite2D" parent="Walls" unique_id=558591469]
+position = Vector2(-178.99997, 416)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a49" type="Sprite2D" parent="Walls" unique_id=295239334]
+position = Vector2(-151.99997, 442)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a50" type="Sprite2D" parent="Walls" unique_id=1806039725]
+position = Vector2(-112.99997, 460)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a51" type="Sprite2D" parent="Walls" unique_id=1070288558]
+position = Vector2(-87.99997, 460)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a52" type="Sprite2D" parent="Walls" unique_id=772417889]
+position = Vector2(-10.000023, 462)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a54" type="Sprite2D" parent="Walls" unique_id=810414499]
+position = Vector2(33.999985, 462)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a55" type="Sprite2D" parent="Walls" unique_id=954581467]
+position = Vector2(57.99999, 459.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a56" type="Sprite2D" parent="Walls" unique_id=1759370130]
+position = Vector2(96.99999, 488.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a57" type="Sprite2D" parent="Walls" unique_id=1983036524]
+position = Vector2(134, 462)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a58" type="Sprite2D" parent="Walls" unique_id=1680345873]
+position = Vector2(176, 461)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a59" type="Sprite2D" parent="Walls" unique_id=1317668705]
+position = Vector2(204, 437.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a60" type="Sprite2D" parent="Walls" unique_id=1128214455]
+position = Vector2(224, 411.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a61" type="Sprite2D" parent="Walls" unique_id=599253799]
+position = Vector2(250, 386)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a62" type="Sprite2D" parent="Walls" unique_id=482191300]
+position = Vector2(207, 361.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a63" type="Sprite2D" parent="Walls" unique_id=762754878]
+position = Vector2(207, 361.99994)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a53" type="Sprite2D" parent="Walls" unique_id=2029999933]
+position = Vector2(-49.000027, 489)
+rotation = 0.018978687
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a7" type="Sprite2D" parent="Walls" unique_id=1178487600]
+position = Vector2(-258, 27)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a8" type="Sprite2D" parent="Walls" unique_id=1200676233]
+position = Vector2(-317, 53)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="RockExtraDecor_a9" type="Sprite2D" parent="Walls" unique_id=1837635449]
+position = Vector2(-276, 50)
+scale = Vector2(1.3625005, 1.3937505)
+texture = ExtResource("46_rkA1")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=469111984]
+build_mode = 1
+polygon = PackedVector2Array(-630, -35, -630, 26, -601, 26, -602, 52, -580, 50, -579, 75, -557, 76, -558, 130, -518, 131, -516, 157, -442, 156, -441, 135, -395, 134, -395, 91, -395, 86, -353, 85, -353, 62, -253, 60, -252, 37, -60, 38, -59, 13, -35, 11, -35, -11, -108, -14, -107, -37, -130, -38, -130, -57, -106, -59, -105, -109, -132, -110, -131, -131, -155, -133, -154, -158, -176, -158, -178, -180, -156, -181, -155, -202, -104, -252, -44, -253, 153, -256, 155, -233, 182, -232, 182, -214, 208, -211, 233, -85, 78, -24, 59, -16, 58, 8, 81, 12, 86, 32, 304, 31, 304, 57, 393, 56, 395, 79, 441, 84, 471, 151, 683, 156, 689, 177, 708, 179, 708, 197, 687, 206, 688, 228, 732, 229, 733, 251, 758, 253, 758, 274, 735, 273, 735, 296, 693, 299, 690, 325, 659, 325, 658, 301, 614, 301, 612, 278, 584, 276, 585, 254, 563, 254, 563, 229, 468, 228, 468, 206, 420, 207, 419, 228, 355, 295, 283, 300, 280, 320, 126, 322, 126, 345, 180, 346, 181, 368, 225, 369, 226, 392, 180, 442, 114, 446, 115, 469, 87, 467, 84, 443, -25, 442, -33, 471, -64, 469, -79, 441, -135, 443, -188, 372, -132, 373, -142, 329, -226, 328, -231, 299, -302, 302, -378, 204, -462, 204, -494, 254, -535, 252, -567, 303, -609, 301, -609, 322, -634, 323, -635, 298, -682, 298, -679, 225, -638, 230, -638, 203, -662, 200, -660, 177, -623, 154, -593, 151, -611, 105, -660, 61, -659, 39, -730, 36, -732, -32)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=1014705072]
+build_mode = 1
+polygon = PackedVector2Array(-72, -148, -11, -127, 80, -134, 34, -81, 29, -21, 198, -17, 181, -232, 58, -266, -40, -262, -61, -212, -61, -189, -72, -153)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=425139110]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1657663392]
+build_mode = 1
+polygon = PackedVector2Array(-237, 271, -220, 243, -175, 257, -167, 282, -170, 292, -239, 282)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=329863856]
+build_mode = 1
+polygon = PackedVector2Array(-115, 330, -96, 291, -45, 287, -17, 329, -20, 351, -116, 335)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=589313411]
+build_mode = 1
+polygon = PackedVector2Array(66, 284, 70, 341, 108, 341, 107, 277, 63, 280)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1098281625]
+build_mode = 1
+polygon = PackedVector2Array(216, 274, 213, 303, 268, 303, 330, 274, 315, 230, 269, 231, 252, 262)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=406166965]
+build_mode = 1
+polygon = PackedVector2Array(105, 152, 110, 119, 149, 114, 176, 124, 170, 152, 103, 158)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1138199661]
+build_mode = 1
+polygon = PackedVector2Array(260, 140, 275, 101, 321, 100, 330, 135)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=564967374]
+build_mode = 1
+polygon = PackedVector2Array(196, 114, 201, 61, 233, 59, 230, 108)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=913717674]
+build_mode = 1
+polygon = PackedVector2Array(126, 63, 130, 27, 156, 30, 158, 66)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1479047809]
+build_mode = 1
+polygon = PackedVector2Array(-105, 60, -106, 84, -80, 81, -84, 63)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1165287970]
+build_mode = 1
+polygon = PackedVector2Array(-277, 143, -291, 90, -262, 76, -244, 79, -245, 105, -246, 139)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1319718620]
+build_mode = 1
+polygon = PackedVector2Array(-315, 221, -314, 200, -290, 203, -286, 219)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1493828283]
+build_mode = 1
+polygon = PackedVector2Array(-601, 286, -597, 263, -573, 266, -571, 289)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1437156412]
+build_mode = 1
+polygon = PackedVector2Array(-673, 259, -671, 237, -650, 240, -651, 264)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=1009593576]
+build_mode = 1
+polygon = PackedVector2Array(72, 412, 94, 361, 149, 374, 184, 420, 171, 448, 71, 409, 74, 404, 72, 409)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=146903355]
+build_mode = 1
+polygon = PackedVector2Array(637, 215, 644, 157, 674, 154, 674, 216, 639, 211, 638, 204)
+
+[node name="AnimDecor" type="Node2D" parent="." unique_id=1416329233]
+
+[node name="EyeTL" type="Sprite2D" parent="AnimDecor" unique_id=1904631062]
+position = Vector2(501, 195)
+scale = Vector2(1.1624998, 1.2562495)
+texture = ExtResource("8_eye1")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("7_anim")
+sheet = ExtResource("8_eye1")
+frame_count = 28
+
+[node name="EyeTR" type="Sprite2D" parent="AnimDecor" unique_id=1346626162]
+position = Vector2(-10.999977, 106)
+scale = Vector2(1.0687491, 1.1)
+texture = ExtResource("9_eye2")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("7_anim")
+sheet = ExtResource("9_eye2")
+frame_count = 28
+fps = 7.5
+
+[node name="LittleEyesL" type="Sprite2D" parent="AnimDecor" unique_id=1040461178]
+position = Vector2(-337.00003, 25.99997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("12_le1")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("7_anim")
+sheet = ExtResource("12_le1")
+frame_w = 16
+frame_h = 16
+frame_count = 36
+fps = 10.0
+
+[node name="LittleEyesR" type="Sprite2D" parent="AnimDecor" unique_id=2046333714]
+position = Vector2(340, -100)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_le2")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("7_anim")
+sheet = ExtResource("13_le2")
+frame_w = 16
+frame_h = 16
+frame_count = 36
+fps = 9.0
+
+[node name="Amalgam1" type="Sprite2D" parent="AnimDecor" unique_id=1534505020]
+position = Vector2(-63, 316)
+scale = Vector2(1.3250005, 1.2781254)
+texture = ExtResource("16_amg1")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 64)
+script = ExtResource("7_anim")
+sheet = ExtResource("16_amg1")
+frame_w = 96
+frame_h = 64
+frame_count = 6
+fps = 6.0
+
+[node name="Amalgam2" type="Sprite2D" parent="AnimDecor" unique_id=1025327857]
+position = Vector2(137.00002, 135)
+scale = Vector2(1.0854169, 0.88749963)
+texture = ExtResource("17_amg2")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 64)
+script = ExtResource("7_anim")
+sheet = ExtResource("17_amg2")
+frame_w = 96
+frame_h = 64
+frame_count = 6
+fps = 5.5
+
+[node name="Mouth1" type="Sprite2D" parent="AnimDecor" unique_id=581477234]
+position = Vector2(-248, 356.00003)
+scale = Vector2(0.8, 0.815625)
+texture = ExtResource("18_mth1")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("7_anim")
+sheet = ExtResource("18_mth1")
+frame_w = 64
+frame_h = 64
+frame_count = 18
+fps = 10.0
+
+[node name="Mouth2" type="Sprite2D" parent="AnimDecor" unique_id=1192316041]
+position = Vector2(715, 357)
+scale = Vector2(0.8, 0.815625)
+texture = ExtResource("19_mth2")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("7_anim")
+sheet = ExtResource("19_mth2")
+frame_w = 64
+frame_h = 64
+frame_count = 18
+fps = 9.0
+
+[node name="CorruptedGolem" parent="." unique_id=47314623 instance=ExtResource("51_golem")]
+visible = false
+position = Vector2(33, 126)
+start_locked = true
+
+[node name="RitualBooks" type="Node2D" parent="." unique_id=1328069575]
+
+[node name="RitualBook1" parent="RitualBooks" unique_id=1212362732 instance=ExtResource("53_ritbk")]
+position = Vector2(-695, -3)
+
+[node name="RitualBook2" parent="RitualBooks" unique_id=1459460221 instance=ExtResource("53_ritbk")]
+position = Vector2(-91, -216)
+book_index = 2
+
+[node name="RitualBook3" parent="RitualBooks" unique_id=1698868900 instance=ExtResource("53_ritbk")]
+position = Vector2(654, 265)
+book_index = 3
+
+[node name="RitualManager" parent="." unique_id=820313481 instance=ExtResource("54_ritmgr")]
+
+[node name="BossItemSpawner" parent="." unique_id=709621710 instance=ExtResource("55_spwn")]
+play_area_polygon_path = NodePath("../Walls/CollisionPolygon2D")
+
+[node name="Player" parent="." unique_id=1392311378 instance=ExtResource("2_slime")]
+position = Vector2(-360, 100)
+scale = Vector2(0.19, 0.19)
+move_speed = 95.0
+
+[node name="Camera2D" parent="Player" index="2" unique_id=1713029387]
+zoom = Vector2(3, 3)
+
+[node name="DebugSkipUI" parent="." unique_id=538738180 instance=ExtResource("5_dbgsk")]
+
+[node name="DebugSkipRitualUI" parent="." unique_id=1623556217 instance=ExtResource("56_dbgrit")]
+
+[node name="DebugHalfBossHpUI" parent="." unique_id=1858373476 instance=ExtResource("57_dbghp")]
+
+[node name="BossHealthUI" parent="." unique_id=807238709 instance=ExtResource("52_bossui")]
+
+[node name="WinUI" parent="." unique_id=163047639 instance=ExtResource("58_winui")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1269534530]
+z_index = -10
+position = Vector2(137.75, 61)
+scale = Vector2(14.303922, 7.8588233)
+texture = ExtResource("41_ut1qk")
+
+[editable path="Player"]

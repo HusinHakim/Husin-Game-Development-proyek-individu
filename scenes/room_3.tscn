@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://hpp52yjwy5c1"]
+
+[ext_resource type="Texture2D" uid="uid://bsqt2xcpjsc7o" path="res://assets/sprites/environment/room3/background.png" id="1_bg"]
+[ext_resource type="PackedScene" uid="uid://dt83befuukoll" path="res://scenes/Slime.tscn" id="2_slime"]
+[ext_resource type="PackedScene" uid="uid://bjbkhnsscqrik" path="res://scenes/RockBoss.tscn" id="3_boss"]
+[ext_resource type="PackedScene" path="res://scenes/KillCounterUI.tscn" id="5_kcui"]
+[ext_resource type="PackedScene" path="res://scenes/DebugSkipUI.tscn" id="6_dbgsk"]
+[ext_resource type="PackedScene" path="res://scenes/Interactable.tscn" id="7_door"]
+[ext_resource type="PackedScene" uid="uid://bn36wjughlnwq" path="res://scenes/Stalagmite.tscn" id="8_stal"]
+[ext_resource type="PackedScene" path="res://scenes/CrystalBuckler.tscn" id="9_buck"]
+[ext_resource type="PackedScene" path="res://scenes/MagicRock.tscn" id="10_rock"]
+[ext_resource type="Script" uid="uid://bidavrvjaacir" path="res://scripts/BossSpawner.gd" id="11_spawn"]
+[ext_resource type="Script" path="res://scripts/ItemScatterer.gd" id="12_scatter"]
+[ext_resource type="PackedScene" path="res://scenes/ScenePortal.tscn" id="13_portal"]
+
+[sub_resource type="RectangleShape2D" id="WallSide"]
+size = Vector2(20, 360)
+
+[node name="Room3" type="Node2D" unique_id=1180406563]
+position = Vector2(640, 360)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2043465312]
+position = Vector2(0, -50)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("1_bg")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1916023780]
+
+[node name="Player" parent="Node2D" unique_id=1978348342 instance=ExtResource("2_slime")]
+position = Vector2(-540, -23)
+scale = Vector2(0.19, 0.19)
+move_speed = 95.0
+
+[node name="Camera2D" parent="Node2D/Player" index="2" unique_id=1713029387]
+zoom = Vector2(3, 3)
+
+[node name="Walls" type="StaticBody2D" parent="Node2D" unique_id=1034284399]
+
+[node name="WallLeft" type="CollisionShape2D" parent="Node2D/Walls" unique_id=923110220]
+position = Vector2(-720, 70)
+shape = SubResource("WallSide")
+
+[node name="WallRight" type="CollisionShape2D" parent="Node2D/Walls" unique_id=2002682197]
+position = Vector2(720, 70)
+shape = SubResource("WallSide")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=401075363]
+build_mode = 1
+polygon = PackedVector2Array(-628, 183, -514, 183, 638, 179, 705, 108, 668, 71, 680, 42, 684, -8, 646, -8, 628, -26, 642, -46, 649, -50, 605, -84, 560, -97, 496, -118, 324, -114, 302, -102, 295, -87, 295, -76, 298, -64, 288, -59, 271, -68, 274, -87, 264, -102, 231, -119, 112, -125, 38, -120, -194, -128, -202, -110, -219, -99, -243, -98, -258, -116, -270, -128, -503, -137, -518, -117, -532, -95, -563, -64, -600, -67, -625, -39, -643, -21, -634, -1, -636, 30, -630, 48)
+
+[node name="RockBoss1" parent="Node2D" unique_id=1367226588 instance=ExtResource("3_boss")]
+position = Vector2(-450, 30)
+death_drop_scene = ExtResource("8_stal")
+
+[node name="RockBoss2" parent="Node2D" unique_id=1013223398 instance=ExtResource("3_boss")]
+death_drop_scene = ExtResource("8_stal")
+
+[node name="BossSpawner" type="Node" parent="Node2D" unique_id=126443912]
+script = ExtResource("11_spawn")
+boss_scene = ExtResource("3_boss")
+death_drop_scene = ExtResource("8_stal")
+total_to_spawn = 4
+min_distance_from_player = 380.0
+
+[node name="CrystalBuckler1" parent="Node2D" unique_id=1315957734 instance=ExtResource("9_buck")]
+position = Vector2(-220, 110)
+
+[node name="CrystalBuckler2" parent="Node2D" unique_id=1280732868 instance=ExtResource("9_buck")]
+position = Vector2(220, 110)
+
+[node name="MagicRock1" parent="Node2D" unique_id=1955511636 instance=ExtResource("10_rock")]
+position = Vector2(-360, 140)
+
+[node name="MagicRock2" parent="Node2D" unique_id=1023513182 instance=ExtResource("10_rock")]
+position = Vector2(0, 160)
+
+[node name="MagicRock3" parent="Node2D" unique_id=851391525 instance=ExtResource("10_rock")]
+position = Vector2(360, 140)
+
+[node name="ItemScatterer" type="Node" parent="Node2D"]
+script = ExtResource("12_scatter")
+
+[node name="Interactable" parent="." unique_id=1462908190 instance=ExtResource("7_door")]
+position = Vector2(0, -130)
+next_scene_path = "res://scenes/room_4.tscn"
+require_enemies_defeated = true
+prompt_offset = Vector2(0, -24)
+prompt_scale = 0.4
+prompt_label = "Enter Depths"
+dialog_message = "Enter the Crawling Depths?"
+
+[node name="ScenePortal" parent="." instance=ExtResource("13_portal")]
+position = Vector2(0, -130)
+require_enemies_defeated = true
+fade_duration = 1.6
+
+[node name="KillCounterUI" parent="." unique_id=95666506 instance=ExtResource("5_kcui")]
+label_prefix = "MonRock Killer"
+max_kills_override = 4
+
+[node name="DebugSkipUI" parent="." unique_id=940380086 instance=ExtResource("6_dbgsk")]
+
+[editable path="Node2D/Player"]

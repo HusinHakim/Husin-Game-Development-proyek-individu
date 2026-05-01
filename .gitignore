@@ -1,0 +1,25 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Claude session data
+.claude/
+
+# Build output (EXE is 100MB+, don't commit)
+*.exe
+*.pck
+*.zip
+
+# Local screenshots / debug previews dumped in project root
+/Abberant_*.png
+/Abberant_*.jpg
+/NVIDIA_Overlay_*.png
+/_golem_preview.png
+/Abberant_*.png.import
+/Abberant_*.jpg.import
+/NVIDIA_Overlay_*.png.import
+/_golem_preview.png.import
+
+# OS junk
+.DS_Store
+Thumbs.db

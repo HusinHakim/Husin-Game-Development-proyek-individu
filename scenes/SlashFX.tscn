@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bslashfx00001"]
+
+[ext_resource type="Script" path="res://scripts/SlashFX.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/slash.png" id="2_sheet"]
+
+[sub_resource type="AtlasTexture" id="atlas_slash_0"]
+atlas = ExtResource("2_sheet")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="atlas_slash_1"]
+atlas = ExtResource("2_sheet")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="atlas_slash_2"]
+atlas = ExtResource("2_sheet")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="atlas_slash_3"]
+atlas = ExtResource("2_sheet")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="atlas_slash_4"]
+atlas = ExtResource("2_sheet")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="atlas_slash_5"]
+atlas = ExtResource("2_sheet")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SlashFrames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_slash_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_slash_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_slash_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_slash_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_slash_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_slash_5")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 16.0
+}]
+
+[node name="SlashFX" type="AnimatedSprite2D"]
+z_index = 50
+z_as_relative = false
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SlashFrames")
+animation = &"slash"
+script = ExtResource("1_script")

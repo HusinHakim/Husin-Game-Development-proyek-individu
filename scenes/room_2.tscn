@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bl54w8ylyqmvx"]
+
+[ext_resource type="Texture2D" uid="uid://cllas7f0otlid" path="res://assets/sprites/environment/room2/Untitled design (15).png" id="1_4et86"]
+[ext_resource type="PackedScene" uid="uid://dt83befuukoll" path="res://scenes/Slime.tscn" id="2_ktm03"]
+[ext_resource type="PackedScene" uid="uid://tjnpt34rxw3y" path="res://scenes/Enemies.tscn" id="3_lsxps"]
+[ext_resource type="PackedScene" uid="uid://cultproj001" path="res://scenes/CultProjectile.tscn" id="4_proj"]
+[ext_resource type="PackedScene" path="res://scenes/RedHeart.tscn" id="5_63qte"]
+[ext_resource type="PackedScene" uid="uid://bb3v4epi1bk8m" path="res://scenes/IronChain.tscn" id="5_lsxps"]
+[ext_resource type="PackedScene" path="res://scenes/KillCounterUI.tscn" id="6_kcui"]
+[ext_resource type="PackedScene" path="res://scenes/Interactable.tscn" id="8_hbe2o"]
+[ext_resource type="PackedScene" path="res://scenes/DebugSkipUI.tscn" id="9_dbgsk"]
+
+[node name="Room2" type="Node2D" unique_id=1767986513]
+position = Vector2(580, 384)
+
+[node name="Room" type="Sprite2D" parent="." unique_id=1306216698]
+position = Vector2(72, -286)
+scale = Vector2(0.25914195, 0.25914195)
+texture = ExtResource("1_4et86")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1252319468]
+
+[node name="Player" parent="Node2D" unique_id=888777666 instance=ExtResource("2_ktm03")]
+position = Vector2(70, -150)
+scale = Vector2(0.19, 0.19)
+move_speed = 95.0
+
+[node name="Camera2D" parent="Node2D/Player" index="2" unique_id=1713029387]
+zoom = Vector2(3.79, 3.79)
+
+[node name="Walls" type="StaticBody2D" parent="Node2D" unique_id=754849434]
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=907810770]
+position = Vector2(93, -51)
+build_mode = 1
+polygon = PackedVector2Array(317, -188, 317, -215, 338, -224, 357, -216, 358, -186, 340, -177)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=1646145174]
+position = Vector2(-27, -132)
+build_mode = 1
+polygon = PackedVector2Array(-19, -1, -65, -1, -87, -15, -225, -19, -228, -36, -246, -41, -256, -57, -260, -71, -223, -110, -236, -124, -218, -139, -211, -135, -184, -152, -191, -181, -222, -191, -211, -198, -188, -208, -151, -208, -133, -192, -104, -189, -49, -186, -22, -224, 11, -228, 26, -238, 31, -257, 72, -257, 72, -289, 119, -288, 120, -259, 164, -259, 167, -249, 198, -221, 223, -223, 262, -206, 281, -211, 279, -226, 441, -225, 429, -159, 435, -142, 435, -116, 437, -103, 467, -93, 472, -78, 475, -64, 436, -53, 431, -33, 408, -29, 403, -20, 286, -19, 274, -13, 265, -9, 252, -7, 201, -8, 173, -9, 159, -9, 156, -2, 130, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=15037536]
+position = Vector2(-580, -385)
+build_mode = 1
+polygon = PackedVector2Array(495, 202, 494, 191, 501, 187, 501, 177, 534, 190, 540, 194, 540, 208, 526, 217)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=1788259206]
+build_mode = 1
+polygon = PackedVector2Array(-18, -180, -17, -164, 10, -154, 18, -158, 17, -172)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=695286113]
+build_mode = 1
+polygon = PackedVector2Array(145, -174, 156, -171, 172, -167, 203, -181, 203, -198, 192, -214, 154, -195, 151, -188, 143, -184)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=1590148431]
+build_mode = 1
+polygon = PackedVector2Array(317, -188, 317, -215, 338, -224, 357, -216, 358, -186, 340, -177)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=1595062450]
+build_mode = 1
+polygon = PackedVector2Array(-162, -213, -162, -233, -128, -252, -112, -236, -112, -222, -142, -204)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=407428983]
+build_mode = 1
+polygon = PackedVector2Array(-226, -239, -209, -228, -176, -247, -176, -263, -182, -266, -186, -280, -227, -255, -226, -241)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=953037455]
+build_mode = 1
+polygon = PackedVector2Array(254, -233, 254, -246, 263, -262, 299, -241, 300, -224, 283, -215)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=29058385]
+build_mode = 1
+polygon = PackedVector2Array(303, -285, 303, -267, 315, -261, 330, -268, 329, -285, 320, -291, 304, -283)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Node2D/Walls" unique_id=1386029793]
+build_mode = 1
+polygon = PackedVector2Array(216, -287, 223, -283, 230, -286, 228, -293, 235, -319, 233, -334, 221, -336, 214, -329, 211, -313, 215, -308, 219, -304, 216, -292)
+
+[node name="Enemies2" parent="Node2D" unique_id=539538204 instance=ExtResource("3_lsxps")]
+position = Vector2(263, -272)
+scale = Vector2(0.1, 0.1)
+projectile_scene = ExtResource("4_proj")
+death_drop_scene = ExtResource("5_63qte")
+
+[node name="CollisionShape2D" parent="Node2D/Enemies2" index="0" unique_id=2140147171]
+visible = true
+
+[node name="StaffTip" parent="Node2D/Enemies2" index="3" unique_id=1286608618]
+position = Vector2(-100, -130.00002)
+
+[node name="DetectionShape" parent="Node2D/Enemies2/DetectionArea" parent_id_path=PackedInt32Array(539538204, 1234567890) index="0" unique_id=1234567891]
+scale = Vector2(1.835, 1.835)
+
+[node name="Enemies" parent="Node2D" unique_id=1579774685 instance=ExtResource("3_lsxps")]
+position = Vector2(-81, -284)
+scale = Vector2(0.1, 0.1)
+projectile_scene = ExtResource("4_proj")
+death_drop_scene = ExtResource("5_63qte")
+
+[node name="CollisionShape2D" parent="Node2D/Enemies" index="0" unique_id=2140147171]
+visible = true
+
+[node name="StaffTip" parent="Node2D/Enemies" index="3" unique_id=1286608618]
+position = Vector2(-100, -116)
+
+[node name="DetectionShape" parent="Node2D/Enemies/DetectionArea" parent_id_path=PackedInt32Array(1579774685, 1234567890) index="0" unique_id=1234567891]
+scale = Vector2(1.875, 1.875)
+
+[node name="Enemies3" parent="Node2D" unique_id=287308355 instance=ExtResource("3_lsxps")]
+position = Vector2(100, -280)
+scale = Vector2(0.1, 0.1)
+projectile_scene = ExtResource("4_proj")
+death_drop_scene = ExtResource("5_63qte")
+
+[node name="CollisionShape2D" parent="Node2D/Enemies3" index="0" unique_id=2140147171]
+visible = true
+
+[node name="StaffTip" parent="Node2D/Enemies3" index="3" unique_id=1286608618]
+position = Vector2(-100, -116)
+
+[node name="DetectionShape" parent="Node2D/Enemies3/DetectionArea" parent_id_path=PackedInt32Array(287308355, 1234567890) index="0" unique_id=1234567891]
+scale = Vector2(1.955, 1.955)
+
+[node name="IronChain" parent="Node2D" unique_id=1137946973 instance=ExtResource("5_lsxps")]
+position = Vector2(-42, -204)
+
+[node name="IronChain2" parent="Node2D" unique_id=2083130836 instance=ExtResource("5_lsxps")]
+position = Vector2(100, -220)
+
+[node name="IronChain3" parent="Node2D" unique_id=544507535 instance=ExtResource("5_lsxps")]
+position = Vector2(222, -239)
+
+[node name="KillCounterUI" parent="." unique_id=1153512065 instance=ExtResource("6_kcui")]
+
+[node name="Interactable" parent="." unique_id=61750373 instance=ExtResource("8_hbe2o")]
+position = Vector2(68, -442)
+next_scene_path = "res://scenes/room_3.tscn"
+require_enemies_defeated = true
+prompt_offset = Vector2(0, -24)
+prompt_scale = 0.3
+
+[node name="DebugSkipUI" parent="." unique_id=2025500099 instance=ExtResource("9_dbgsk")]
+
+[editable path="Node2D/Player"]
+[editable path="Node2D/Enemies2"]
+[editable path="Node2D/Enemies"]
+[editable path="Node2D/Enemies3"]

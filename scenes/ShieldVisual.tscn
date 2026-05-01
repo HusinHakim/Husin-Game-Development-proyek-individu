@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b762wmw8hem53"]
+
+[ext_resource type="Script" path="res://scripts/ShieldVisual.gd" id="1_script"]
+
+[node name="ShieldVisual" type="Node2D"]
+z_index = 50
+z_as_relative = false
+script = ExtResource("1_script")

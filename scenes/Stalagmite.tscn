@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bn36wjughlnwq"]
+
+[ext_resource type="Script" path="res://scripts/Stalagmite.gd" id="1_stal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/stalagmite.png" id="2_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
+radius = 28.0
+
+[node name="Stalagmite" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_stal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pickup")
+
+[node name="PickupGlow" type="CPUParticles2D" parent="."]
+amount = 4
+lifetime = 1.2
+randomness = 0.6
+spread = 180.0
+gravity = Vector2(0, -8)
+initial_velocity_min = 4.0
+initial_velocity_max = 10.0
+scale_amount_max = 2.5
+color = Color(0.75, 0.78, 0.95, 0.45)

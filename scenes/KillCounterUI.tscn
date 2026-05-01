@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://kill_counter_v1"]
+
+[ext_resource type="Script" path="res://scripts/KillCounterUI.gd" id="1_kc"]
+
+[node name="KillCounterUI" type="CanvasLayer"]
+layer = 6
+script = ExtResource("1_kc")

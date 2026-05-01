@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://red_heart_v1"]
+
+[ext_resource type="Script" path="res://scripts/HealthHeart.gd" id="1_hh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_red"]
+radius = 22.0
+
+[node name="RedHeart" type="Area2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_hh")
+heart_color = Color(0.92, 0.15, 0.15, 1.0)
+heal_amount = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_red")
