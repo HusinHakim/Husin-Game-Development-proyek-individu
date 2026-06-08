@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buqr4ylb67qoc" path="res://assets/sprites/characters/Untitled design (14).png" id="2_new"]
 [ext_resource type="Texture2D" uid="uid://c68ea3bxqlx4h" path="res://assets/sprites/characters/cult/spawn_spritesheet_final.png" id="3_bkqv4"]
 [ext_resource type="Script" uid="uid://46e83b0ea852" path="res://scripts/HealthBar.gd" id="5_hbar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/cult/cult_entangled.png" id="6_entg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_main"]
 radius = 42.0
@@ -69,8 +70,69 @@ region = Rect2(923, 72, 290, 320)
 atlas = ExtResource("2_new")
 region = Rect2(1232, 72, 290, 320)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent0"]
+atlas = ExtResource("6_entg")
+region = Rect2(0, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent1"]
+atlas = ExtResource("6_entg")
+region = Rect2(444, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent2"]
+atlas = ExtResource("6_entg")
+region = Rect2(888, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent3"]
+atlas = ExtResource("6_entg")
+region = Rect2(1332, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent4"]
+atlas = ExtResource("6_entg")
+region = Rect2(1776, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent5"]
+atlas = ExtResource("6_entg")
+region = Rect2(2220, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent6"]
+atlas = ExtResource("6_entg")
+region = Rect2(2664, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent7"]
+atlas = ExtResource("6_entg")
+region = Rect2(3108, 0, 444, 444)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_main"]
 animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ent0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ent1")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ent2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ent3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ent4")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ent5")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ent6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ent7")
+}],
+"loop": false,
+"name": &"entangled",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cast_00")

@@ -1,6 +1,8 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://7xg53to0oxr8"]
 
 [ext_resource type="Texture2D" uid="uid://daej0h00raxlv" path="res://assets/corrupted_golem/golem-Sheet.png" id="1_sheet"]
+[ext_resource type="Texture2D" path="res://assets/corrupted_golem/golem_entangled.png" id="2_entg"]
+[ext_resource type="Texture2D" path="res://assets/corrupted_golem/golem_stunned.png" id="3_stun"]
 
 [sub_resource type="AtlasTexture" id="atlas_death_0"]
 atlas = ExtResource("1_sheet")
@@ -274,8 +276,123 @@ region = Rect2(768, 192, 96, 96)
 atlas = ExtResource("1_sheet")
 region = Rect2(864, 192, 96, 96)
 
+[sub_resource type="AtlasTexture" id="atlas_ent_0"]
+atlas = ExtResource("2_entg")
+region = Rect2(0, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_1"]
+atlas = ExtResource("2_entg")
+region = Rect2(444, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_2"]
+atlas = ExtResource("2_entg")
+region = Rect2(888, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_3"]
+atlas = ExtResource("2_entg")
+region = Rect2(1332, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_4"]
+atlas = ExtResource("2_entg")
+region = Rect2(1776, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_5"]
+atlas = ExtResource("2_entg")
+region = Rect2(2220, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_6"]
+atlas = ExtResource("2_entg")
+region = Rect2(2664, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_ent_7"]
+atlas = ExtResource("2_entg")
+region = Rect2(3108, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_1"]
+atlas = ExtResource("3_stun")
+region = Rect2(444, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_2"]
+atlas = ExtResource("3_stun")
+region = Rect2(888, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_3"]
+atlas = ExtResource("3_stun")
+region = Rect2(1332, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_4"]
+atlas = ExtResource("3_stun")
+region = Rect2(1776, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_5"]
+atlas = ExtResource("3_stun")
+region = Rect2(2220, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_6"]
+atlas = ExtResource("3_stun")
+region = Rect2(2664, 0, 444, 444)
+
+[sub_resource type="AtlasTexture" id="atlas_stun_7"]
+atlas = ExtResource("3_stun")
+region = Rect2(3108, 0, 444, 444)
+
 [resource]
 animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("atlas_ent_0")
+}, {
+"duration": 0.5,
+"texture": SubResource("atlas_ent_1")
+}, {
+"duration": 1.5,
+"texture": SubResource("atlas_ent_2")
+}, {
+"duration": 1.5,
+"texture": SubResource("atlas_ent_3")
+}, {
+"duration": 1.5,
+"texture": SubResource("atlas_ent_4")
+}, {
+"duration": 1.5,
+"texture": SubResource("atlas_ent_5")
+}, {
+"duration": 0.5,
+"texture": SubResource("atlas_ent_6")
+}, {
+"duration": 0.5,
+"texture": SubResource("atlas_ent_7")
+}],
+"loop": false,
+"name": &"entangled",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_stun_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_stun_7")
+}],
+"loop": true,
+"name": &"stunned",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("atlas_death_0")

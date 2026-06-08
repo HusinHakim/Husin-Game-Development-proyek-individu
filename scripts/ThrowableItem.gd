@@ -76,7 +76,16 @@ func _process(delta: float) -> void:
 
 
 func _hit_enemy(enemy: Node) -> void:
+	# Capture impact point + direction BEFORE apply/land (apply may kill the
+	# enemy, _land() zeroes _velocity). Fallback dir = item -> enemy.
+	var hit_pos: Vector2 = global_position
+	var hit_dir: Vector2 = _velocity
+	if hit_dir.length() < 0.01 and enemy is Node2D:
+		hit_dir = (enemy as Node2D).global_position - global_position
 	apply_effect_to(enemy)
+	# Game-feel juice (hit-stop + knockback + particles) — berlaku untuk semua
+	# enemy karena setiap thrown item lewat sini.
+	HitFX.on_hit(enemy, hit_pos, hit_dir)
 	if destroy_on_hit:
 		queue_free()
 	else:

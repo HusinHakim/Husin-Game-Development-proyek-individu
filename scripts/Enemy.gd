@@ -26,6 +26,12 @@ signal died  # emitted on every death (incl. respawnable ones) for kill-counter 
 var _charged_proj = null  # projectile sitting at staff tip before release
 var _entangled: bool = false
 
+# Spritesheet "entangled" sudah di-align (body terpusat + robe-bottom seragam)
+# dan body-nya seukuran frame walk, jadi scale 1.0 & offset ~0.
+# (Fine-tune di editor kalau posisinya perlu digeser sedikit.)
+const ENTANGLED_SCALE := Vector2(1.0, 1.0)
+const ENTANGLED_OFFSET := Vector2(0, -1)
+
 enum State { DORMANT, SPAWNING, WALK, IDLE, CAST }
 
 var state: State = State.DORMANT
@@ -53,6 +59,14 @@ func take_damage(amount: int) -> void:
 	health_bar.set_hp(hp, max_hp)
 	if hp <= 0:
 		_die_and_respawn()
+
+
+# Hit flash (#2) — dipanggil HitFX.on_hit. Skip saat sekarat/respawn (DORMANT)
+# supaya tidak mengganggu sprite yang sudah disembunyikan.
+func flash_hit() -> void:
+	if state == State.DORMANT:
+		return
+	HitFX.flash(animated_sprite)
 
 
 func _die_and_respawn() -> void:
@@ -117,8 +131,8 @@ func apply_entangle(duration: float) -> void:
 	var saved_speed := move_speed
 	move_speed = 0.0
 	_cancel_cast_if_active()
-	if state == State.WALK:
-		_enter_idle()
+	# Bekukan + mulai animasi terbelit (berlaku dari WALK/IDLE/CAST).
+	_enter_idle()
 
 	var status := StatusEffectBar.new()
 	status.setup(duration, "Entangled", Color(0.35, 0.70, 1.0, 0.95))
@@ -189,9 +203,25 @@ func _physics_process(delta: float) -> void:
 func _enter_idle() -> void:
 	state = State.IDLE
 	state_timer = 0.0
+	if _entangled:
+		_play_entangled()
+		return
 	animated_sprite.animation = "walk"
 	animated_sprite.stop()
 	animated_sprite.frame = 0
+	animated_sprite.offset = Vector2.ZERO
+	animated_sprite.scale = Vector2.ONE
+
+
+# Mainkan animasi terbelit sekali (non-loop): rantai melilit → tahan → lepas.
+# Speed di SpriteFrames disetel ~4 fps × 8 frame ≈ 2.0s = ENTANGLE_DURATION,
+# jadi frame "lepas rantai" jatuh tepat saat efek berakhir.
+func _play_entangled() -> void:
+	animated_sprite.flip_h = false   # art chained punya orientasi tetap
+	animated_sprite.scale = ENTANGLED_SCALE
+	animated_sprite.offset = ENTANGLED_OFFSET
+	if animated_sprite.animation != "entangled":
+		animated_sprite.play("entangled")
 
 
 func _enter_cast() -> void:
@@ -204,6 +234,7 @@ func _enter_cast() -> void:
 
 
 func _play_anim(anim: String) -> void:
+	animated_sprite.offset = Vector2.ZERO   # reset offset pose entangled
 	match anim:
 		"spawn":
 			animated_sprite.scale = Vector2(1.087, 1.087)

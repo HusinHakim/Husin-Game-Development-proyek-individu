@@ -97,6 +97,17 @@ var state_timer: float = 0.0
 var attack_cd: float = 0.0
 var _player_ref: Node2D = null
 var _entangled: bool = false
+# Animasi disable hi-res (444px) yang sedang aktif: "" = none (freeze idle lama),
+# "entangled" (rantai, sekali) atau "stunned" (halo, loop). Tiap anim punya
+# scale/offset sendiri karena digambar beda ukuran; harus match boss (frame
+# native 96px @ node scale 2.0). Stun & entangle sama-sama set _entangled=true.
+var _disable_anim: String = ""
+const ENTANGLED_SCALE := Vector2(0.384, 0.384)
+const ENTANGLED_OFFSET := Vector2(-1, 13)
+const STUNNED_SCALE := Vector2(0.461, 0.461)
+const STUNNED_OFFSET := Vector2(1, -25)
+var _base_sprite_scale: Vector2 = Vector2.ONE
+var _base_sprite_offset: Vector2 = Vector2.ZERO
 var _attack_dealt_this_anim: bool = false
 var _windup_timer: float = 0.0
 var _telegraph: Node2D = null
@@ -133,6 +144,10 @@ func _ready() -> void:
 	collision.disabled = true
 	animated_sprite.visible = false
 	animated_sprite.speed_scale = anim_speed_scale
+	# Simpan transform sprite dasar (dari scene) untuk dipulihkan setelah pose
+	# "entangled" yang memakai scale/offset berbeda.
+	_base_sprite_scale = animated_sprite.scale
+	_base_sprite_offset = animated_sprite.offset
 	animated_sprite.animation_finished.connect(_on_animation_finished)
 	# Force loop flags at runtime: the SpriteFrames may have been re-imported
 	# or renamed via the editor with loop=true (Godot's default for new anims),
@@ -241,31 +256,34 @@ func _drop_loot() -> void:
 # --- Status -----------------------------------------------------------------
 
 func apply_entangle(duration: float) -> void:
-	_apply_disable(duration, "Entangled", Color(0.35, 0.70, 1.0, 0.95))
+	_apply_disable(duration, "Entangled", Color(0.35, 0.70, 1.0, 0.95), "entangled")
 
 
 func apply_stun(duration: float) -> void:
 	if _stunned or state == State.DEAD:
 		return
 	_stunned = true
-	_apply_disable(duration, "Stunned", Color(1.0, 0.85, 0.20, 0.95))
+	_apply_disable(duration, "Stunned", Color(1.0, 0.85, 0.20, 0.95), "stunned")
 	await get_tree().create_timer(duration).timeout
 	if is_instance_valid(self):
 		_stunned = false
 
 
-func _apply_disable(duration: float, label: String, bar_color: Color) -> void:
+func _apply_disable(duration: float, label: String, bar_color: Color, disable_anim: String = "") -> void:
 	if _entangled or state == State.DEAD:
 		return
 	_entangled = true
+	_disable_anim = disable_anim
 	var saved_speed := move_speed
 	move_speed = 0.0
 	_clear_telegraph()
 	_clear_floating_projectile()
 	if hit_area:
 		hit_area.monitoring = false
+	# Punya anim disable → mainkan (entangled/stunned); kalau "" → bekukan idle.
 	_enter_idle()
-	animated_sprite.speed_scale = 0.0
+	if disable_anim == "":
+		animated_sprite.speed_scale = 0.0
 
 	# Status bar attaches to a fresh anchor above the boss head, NOT to the
 	# in-world HealthBar (which we keep hidden because BossHealthUI shows HP
@@ -286,10 +304,13 @@ func _apply_disable(duration: float, label: String, bar_color: Color) -> void:
 
 	await get_tree().create_timer(duration).timeout
 	if is_instance_valid(self) and state != State.DEAD:
-		animated_sprite.speed_scale = anim_speed_scale
 		move_speed = saved_speed
 		_entangled = false
+		_disable_anim = ""
 		attack_cd = 0.0
+		# _enter_idle() memulihkan scale/offset/speed_scale + anim idle normal
+		# (melepas pose disable 444px kembali ke idle 96px).
+		_enter_idle()
 
 
 # --- Main loop --------------------------------------------------------------
@@ -417,6 +438,11 @@ func _enter_idle() -> void:
 	state = State.IDLE
 	state_timer = 0.0
 	velocity = Vector2.ZERO
+	if _disable_anim != "":
+		_show_disable_pose()
+		return
+	animated_sprite.scale = _base_sprite_scale
+	animated_sprite.offset = _base_sprite_offset
 	# Restore base speed — attacks may have boosted speed_scale.
 	if not _entangled:
 		animated_sprite.speed_scale = anim_speed_scale
@@ -426,9 +452,34 @@ func _enter_idle() -> void:
 func _enter_walk() -> void:
 	state = State.WALK
 	state_timer = 0.0
+	if _disable_anim != "":
+		_show_disable_pose()
+		return
+	animated_sprite.scale = _base_sprite_scale
+	animated_sprite.offset = _base_sprite_offset
 	if not _entangled:
 		animated_sprite.speed_scale = anim_speed_scale
 	_play_anim(ANIM_WALK)
+
+
+# Pose disable boss (entangled/stunned): animasi hi-res perlu scale-down +
+# offset per-anim agar match ukuran boss. speed_scale 1.0 supaya timing baked
+# di SpriteFrames akurat. Guard agar tidak restart tiap tick state machine.
+func _show_disable_pose() -> void:
+	if _disable_anim == "":
+		return
+	# Mirror sesuai arah hadap boss (sama konvensi dgn _update_facing). Art
+	# disable default menghadap kanan (ball di kiri), flip saat menghadap kiri.
+	animated_sprite.flip_h = (_facing_x < 0.0)
+	if _disable_anim == "stunned":
+		animated_sprite.scale = STUNNED_SCALE
+		animated_sprite.offset = STUNNED_OFFSET
+	else:
+		animated_sprite.scale = ENTANGLED_SCALE
+		animated_sprite.offset = ENTANGLED_OFFSET
+	if animated_sprite.animation != _disable_anim:
+		animated_sprite.speed_scale = 1.0
+		animated_sprite.play(_disable_anim)
 
 
 func _enter_swipe() -> void:

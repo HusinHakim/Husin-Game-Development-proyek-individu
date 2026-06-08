@@ -129,6 +129,14 @@ func take_damage(amount: int) -> void:
 		_die()
 
 
+# Hit flash (#2) — dipanggil HitFX.on_hit. Skip saat DEAD/DORMANT supaya
+# tidak menimpa fade kematian (tween modulate:a di _die()).
+func flash_hit() -> void:
+	if state == State.DEAD or state == State.DORMANT:
+		return
+	HitFX.flash(animated_sprite)
+
+
 func _enter_phase_2() -> void:
 	phase = 2
 	move_speed *= phase2_speed_mult

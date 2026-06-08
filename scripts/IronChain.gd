@@ -20,3 +20,4 @@ func apply_effect_to(enemy: Node) -> void:
 	super.apply_effect_to(enemy)
 	if enemy.has_method("apply_entangle"):
 		enemy.apply_entangle(ENTANGLE_DURATION)
+		HitFX.play_entangle_sfx()

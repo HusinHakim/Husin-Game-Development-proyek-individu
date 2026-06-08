@@ -43,7 +43,7 @@
 [ext_resource type="PackedScene" path="res://scenes/WinUI.tscn" id="58_winui"]
 
 [node name="Room4" type="Node2D" unique_id=153135711]
-position = Vector2(640, 360)
+position = Vector2(634, 359)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1386023821]
 position = Vector2(18, 54)
@@ -1748,7 +1748,7 @@ zoom = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1269534530]
 z_index = -10
-position = Vector2(137.75, 61)
+position = Vector2(-238, -263)
 scale = Vector2(14.303922, 7.8588233)
 texture = ExtResource("41_ut1qk")
 
